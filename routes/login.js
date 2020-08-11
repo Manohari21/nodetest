@@ -34,8 +34,8 @@ router.post('/sendTemporaryPassword', (req, res) => {
 router.post('/validate', (req, res) => {
     console.log("Validate page requested");
     var errormessage = 'Invalid Username/password';
-    let url = `http://${springHost}:${springPort}/getUser?name=${req.body.username}`;
-
+    let url = `http://course-final.gitdemo.svc:${springPort}/getUser?name=${req.body.username}`;
+    
     axios.get(url).then(function (response) {
         console.log("Fetching user details from: " + url);
         const status = response.status;
