@@ -8,7 +8,7 @@ let { springHost, springPort } = require("../helpers/constants");
 router.get('/', function (req, res, next) {
   let springEndpoint = "getAllCourses";
 
-  let apiUrl = `http://${process.env.springHost}/${springEndpoint}`;
+  let apiUrl = `${process.env.springHost}/${springEndpoint}`;
   console.log(apiUrl);
   axios.get(apiUrl)
     .then(function (response) {
