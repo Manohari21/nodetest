@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "start": "node app.js"
+    "start": "node ./bin/www"
   },
-  "main": "app.js",
+  
   "dependencies": {
     "axios": "^0.19.2",
     "cookie-parser": "~1.4.4",
