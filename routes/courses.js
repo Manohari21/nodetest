@@ -9,6 +9,7 @@ router.get('/', function (req, res, next) {
   let springEndpoint = "getAllCourses";
 
   let apiUrl = `http://${springHost}:${springPort}/${springEndpoint}`;
+  console.log(apiUrl);
   axios.get(apiUrl)
     .then(function (response) {
       console.log("Requesting courses url: " + apiUrl);
