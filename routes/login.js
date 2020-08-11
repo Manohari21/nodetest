@@ -34,7 +34,7 @@ router.post('/sendTemporaryPassword', (req, res) => {
 router.post('/validate', (req, res) => {
     console.log("Validate page requested");
     var errormessage = 'Invalid Username/password';
-    let url = `http://course-final.gitdemo.svc:8080/getUser?name=${req.body.username}`;
+    let url = `http://course-final-gitdemo.192.168.99.104.nip.io/CourseCatalogueServerApp-0.0.1-SNAPSHOT/getUser?name=${req.body.username}`;
     console.log(url);
     axios.get(url).then(function (response) {
         console.log("Fetching user details from: " + url);
