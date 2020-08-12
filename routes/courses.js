@@ -7,7 +7,7 @@ let { springHost, springPort } = require("../helpers/constants");
 /* GET home page. */
 router.get('/', function (req, res, next) {
   let springEndpoint = "getAllCourses";
-
+  // let apiUrl = `http://${springHost}:${springPort}/${springEndpoint}`;
   let apiUrl = `${process.env.springHost}/${springEndpoint}`;
   console.log(apiUrl);
   axios.get(apiUrl)
@@ -52,7 +52,8 @@ router.get("/:courseId", function (req, res, next) {
     error.statusCode = 400
     return next(error);
   }
-  let url = `http://${springHost}:${springPort}/course/${courseId}`;
+  //let url = `http://${springHost}:${springPort}/course/${courseId}`;
+  let url = `${process.env.springHost}/course/${courseId}`;
   return axios.get(url).then(function (response) {
     // Process the response data and render an EJS file
     if (response.status != 200) {

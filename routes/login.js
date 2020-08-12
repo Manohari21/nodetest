@@ -10,7 +10,8 @@ router.get('/', (req, res) => {
 
 router.post('/sendTemporaryPassword', (req, res) => {
     console.log("sentData page requested" + req.body.name);
-    let url = `http://${springHost}:${springPort}/sendTemporaryPassword`;
+   // let url = `http://${springHost}:${springPort}/sendTemporaryPassword`;
+    let url = `${process.env.springHost}/sendTemporaryPassword`;
     var userData = {
         userName: req.body.name,
         email: req.body.email
@@ -33,10 +34,11 @@ router.post('/sendTemporaryPassword', (req, res) => {
 })
 router.post('/validate', (req, res) => {
     console.log("Validate page requested");
-    var host=process.env.springHost;
-    console.log("spring---"+host+"------------"+process.env.host+"......"+process.env.OPENSHIFT_WILDFLY_HOST);
+    // var host=process.env.springHost;
+    // console.log("spring---"+host+"------------"+process.env.host+"......"+process.env.OPENSHIFT_WILDFLY_HOST);
     var errormessage = 'Invalid Username/password';
-    let url = `http://course-final-gitdemo.192.168.99.104.nip.io/CourseCatalogueServerApp-0.0.1-SNAPSHOT/getUser?name=${req.body.username}`;
+   // let url = `http://${springHost}:${springPort}/getUser?name=${req.body.username}`;
+    let url = `${process.env.springHost}/getUser?name=${req.body.username}`;
     console.log(url);
     axios.get(url).then(function (response) {
         console.log("Fetching user details from: " + url);

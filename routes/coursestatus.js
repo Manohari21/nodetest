@@ -13,7 +13,8 @@ router.get("/:userId", function (req, res, next) {
     error.statusCode = 400
     return next(error);
   }
-  let url = `http://${springHost}:${springPort}/getCourseStatus/${courseId}`;
+  //let url = `http://${springHost}:${springPort}/getCourseStatus/${courseId}`;
+  let url = `${process.env.springHost}/getCourseStatus/${courseId}`;
   return axios.get(url).then(function (response) {
     // Process the response data and render an EJS file
 	let data = [];
